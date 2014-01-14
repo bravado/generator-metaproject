@@ -1,0 +1,17 @@
+{
+    "name": "<%= packageName %>",
+    "version": "<%= appVersion %>",
+    "authors": [
+        <%= authors %>
+    ],
+    "description": "<%= appTitle %>",
+    "main": "app/main.js",
+    "keywords": [
+        <%= keywords %>
+    ],
+    "license": "<%= license %>",
+    "homepage": "<%= homepage %>",
+    "dependencies": {
+        "metaproject": "git://github.com/bravado/metaproject"
+    }
+}
