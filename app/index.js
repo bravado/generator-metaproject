@@ -91,6 +91,10 @@ ObjectivewebGenerator.prototype.askFor = function askFor() {
 ObjectivewebGenerator.prototype.app = function app() {
     this.mkdir('app');
     this.mkdir('app/modules');
+    this.copy('_init.php', '_init.php');
+    this.copy('main.js', 'app/main.js');
+    this.copy('style.css', 'app/style.css');
+    this.template('_index.html', 'index.html');
     this.template('_settings.js', 'app/settings.js');
     this.template('_bower.json', 'bower.json');
     this.directory('core', 'app/core');
