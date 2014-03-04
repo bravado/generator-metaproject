@@ -20,6 +20,7 @@
                 <div class="pull-right notification-area"></div>
                 <div class="pull-right module-menu"></div>
                 <div class="app-menu">
+                    <div class="current-module"><i class="icon-list"></i> <span class="name"></span></div>
                     <div class="main-menu">
                         <ul>
                             <li class="active"><a href="#/"><%= appTitle %></a></li>
@@ -32,7 +33,7 @@
     </header>
 
 
-    <div id="main-content" class="container-fluid appcontent">
+    <div id="main-content" class="container-fluid appcontent" >
     </div>
 
 </section>
@@ -66,15 +67,16 @@
 <script type="text/javascript"
         src="bower_components/knockout-postbox/build/knockout-postbox.min.js"></script>
 <script type="text/javascript"
-        src="bower_components/knockout-mapping/build/output/knockout.mapping-latest.js"
-        charset="utf-8"></script>
+        src="bower_components/knockout-mapping/build/output/knockout.mapping-latest.js" charset="utf-8"></script>
+<script type="text/javascript"
+        src="bower_components/knockout.punches/knockout.punches.min.js"></script>
 
 <script type="text/javascript"
         src="bower_components/metaproject/build/metaproject.full.js"></script>
 
 <!-- /metaproject -->
 
-<script type="text/javascript" data-main="app/main"
-        src="../objectiveweb/console/libs/require/require.js"></script>
+<script type="text/javascript" data-main="main"
+        src="../objectiveweb/js/require/require.js"></script>
 </body>
 </html>

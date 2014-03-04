@@ -10,12 +10,12 @@
     require.config({
         paths: {
             // requirejs plugins in use
-            text: '../../objectiveweb/console/libs/require/text',
-            order: '../../objectiveweb/console/libs/require/order',
-            i18n: '../../objectiveweb/console/libs/require/i18n',
-            domReady: '../../objectiveweb/console/libs/require/domReady',
-            path: '../../objectiveweb/console/libs/require/path',
-            objectiveweb: '../../objectiveweb',
+            text: '../objectiveweb/js/require/text',
+            order: '../objectiveweb/js/require/order',
+            i18n: '../objectiveweb/js/require/i18n',
+            domReady: '../objectiveweb/js/require/domReady',
+            path: '../objectiveweb/js/require/path',
+            objectiveweb: '../objectiveweb',
             // namespace that aggregate core classes that are in frequent use
             Boiler: './core/_boiler_'
         }

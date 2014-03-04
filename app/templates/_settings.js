@@ -5,7 +5,12 @@
 * sub contexts.
 * Settings can be simple literal variables or objects having complex definitions.
 */
-define({
-    appName: "<%= appTitle %>"
+define(function(require) {
+    "use strict";
+
+    return {
+        appName: "<%= appTitle %>",
+        modules: []
+    }
 });
 
