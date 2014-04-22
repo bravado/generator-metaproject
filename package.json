@@ -1,12 +1,12 @@
 {
-  "name": "generator-objectiveweb",
+  "name": "generator-metaproject",
   "version": "0.0.0",
-  "description": "A generator for Objectiveweb Javascript Applications",
+  "description": "A generator for Metaproject Applications",
   "keywords": [
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/bravado/generator-objectiveweb",
-  "bugs": "https://github.com/bravado/generator-objectiveweb/issues",
+  "homepage": "https://github.com/bravado/generator-metaproject",
+  "bugs": "https://github.com/bravado/generator-metaproject/issues",
   "author": {
     "name": "Guilherme Barile",
     "email": "guigouz@gmail.com",
@@ -15,7 +15,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bravado/generator-objectiveweb.git"
+    "url": "git://github.com/bravado/generator-metaproject.git"
   },
   "scripts": {
     "test": "mocha"

@@ -1,0 +1,11 @@
+{
+    "name": "<%= packageName %>",
+    "version": "<%= appVersion %>",
+    "keywords": [
+    <%= keywords %>
+    ],
+    "homepage": "<%= homepage %>",
+    "dependencies": {
+        "requirejs": "2.x"
+    }
+}

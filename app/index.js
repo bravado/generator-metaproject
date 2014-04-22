@@ -4,7 +4,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 
 
-var ObjectivewebGenerator = module.exports = function ObjectivewebGenerator(args, options, config) {
+var MetaprojectGenerator = module.exports = function MetaprojectGenerator(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
 
     this.on('end', function () {
@@ -14,9 +14,9 @@ var ObjectivewebGenerator = module.exports = function ObjectivewebGenerator(args
     this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
-util.inherits(ObjectivewebGenerator, yeoman.generators.Base);
+util.inherits(MetaprojectGenerator, yeoman.generators.Base);
 
-ObjectivewebGenerator.prototype.askFor = function askFor() {
+MetaprojectGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
 
     // have Yeoman greet the user.
@@ -31,7 +31,7 @@ ObjectivewebGenerator.prototype.askFor = function askFor() {
         {
             name: 'appTitle',
             message: 'Application Title',
-            default: "Objectiveweb Application"
+            default: "Metaproject Application"
         },
         {
             name: 'appVersion',
@@ -88,18 +88,18 @@ ObjectivewebGenerator.prototype.askFor = function askFor() {
     }.bind(this));
 };
 
-ObjectivewebGenerator.prototype.app = function app() {
+MetaprojectGenerator.prototype.app = function app() {
     this.mkdir('modules');
-    this.copy('_init.php', '_init.php');
     this.copy('main.js', 'main.js');
     this.copy('style.css', 'style.css');
     this.template('_index.html', 'index.html');
     this.template('_settings.js', 'settings.js');
+    this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
-    this.directory('core', 'app/core');
+    this.directory('core', 'core');
 
 };
 
-ObjectivewebGenerator.prototype.projectfiles = function projectfiles() {
+MetaprojectGenerator.prototype.projectfiles = function projectfiles() {
 
 };
