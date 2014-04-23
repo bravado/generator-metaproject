@@ -1,7 +1,6 @@
-# generator-objectiveweb [![Build Status](https://secure.travis-ci.org/guigouz/generator-objectiveweb.png?branch=master)](https://travis-ci.org/guigouz/generator-objectiveweb)
+# generator-metaproject
 
-A generator for [Yeoman](http://yeoman.io).
-
+A Yeoman generator for [Metaproject](https://github.com/bravado/metaproject) applications.
 
 ## Getting Started
 
@@ -15,31 +14,25 @@ Basically, he wears a top hat, lives in your computer, and waits for you to tell
 
 Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
 
-```
-$ npm install -g yo
-```
+### Dependencies
 
-### Yeoman Generators
+To run this generator, you'll need NPM, Yeoman and Bower installed
 
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
+    $ npm install -g yo
+    $ npm install -g bower
 
-To install generator-objectiveweb from npm, run:
+## The Metaproject Generator
 
-```
-$ npm install -g generator-objectiveweb
-```
-
-Finally, initiate the generator:
+To install generator-metaproject from npm, run:
 
 ```
-$ yo objectiveweb
+$ npm install -g generator-metaproject
 ```
 
-### Getting To Know Yeoman
+Finally, initiate the generator on `app_root`:
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
-
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+    $ cd /path/to/app_root
+    $ yo metaproject
 
 
 ## License
