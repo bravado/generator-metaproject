@@ -7,6 +7,8 @@ var yeoman = require('yeoman-generator');
 var MetaprojectGenerator = module.exports = function MetaprojectGenerator(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
 
+    this.name = undefined == arguments[0][0] ? 'app' : arguments[0][0];
+
     this.on('end', function () {
         this.installDependencies({ skipInstall: options['skip-install'] });
     });
@@ -89,14 +91,21 @@ MetaprojectGenerator.prototype.askFor = function askFor() {
 };
 
 MetaprojectGenerator.prototype.app = function app() {
-    this.mkdir('modules');
-    this.copy('main.js', 'main.js');
-    this.copy('style.css', 'style.css');
-    this.template('_index.html', 'index.html');
-    this.template('_settings.js', 'settings.js');
+
+    var app = this.name,
+        modules = this.name + '/modules',
+        core = this.name + '/core';
+
+    this.mkdir(app);
+    this.mkdir(modules);
+    this.directory('core', core);
+    this.copy('main.js', app + '/main.js');
+    this.copy('style.css', app + '/style.css');
+    this.template('_index.html', app + '/index.html');
+    this.template('_bowerrc', '.bowerrc');
+    this.template('_settings.js', app + '/settings.js');
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
-    this.directory('core', 'core');
 
 };
 

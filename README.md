@@ -25,15 +25,14 @@ To run this generator, you'll need NPM, Yeoman and Bower installed
 
 To install generator-metaproject from npm, run:
 
-```
-$ npm install -g generator-metaproject
-```
+    $ npm install -g generator-metaproject
 
 Finally, initiate the generator on `app_root`:
 
     $ cd /path/to/app_root
-    $ yo metaproject
+    $ yo metaproject [app_dir]
 
+  * `app_dir` should be your public html directory, defaults to "app"
 
 ## License
 
