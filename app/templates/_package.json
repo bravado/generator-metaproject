@@ -4,8 +4,5 @@
     "keywords": [
     <%= keywords %>
     ],
-    "homepage": "<%= homepage %>",
-    "dependencies": {
-        "requirejs": "2.x"
-    }
+    "homepage": "<%= homepage %>"
 }

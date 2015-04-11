@@ -12,7 +12,6 @@ define(function(require) {
 		Localizer : require("./localizer"),
 		Logger : require("./logger"),
 		Mediator : require("./mediator"),
-		Router : require("./router"),
 		Settings : require("./settings"),
 		Styler : require("./styler")
 	};

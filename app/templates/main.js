@@ -10,12 +10,9 @@
     require.config({
         paths: {
             // requirejs plugins in use
-            text: '../objectiveweb/js/require/text',
-            order: '../objectiveweb/js/require/order',
-            i18n: '../objectiveweb/js/require/i18n',
-            domReady: '../objectiveweb/js/require/domReady',
-            path: '../objectiveweb/js/require/path',
-            objectiveweb: '../objectiveweb',
+            text: './assets/requirejs-text/text',
+            domReady: './assets/requirejs-domready/domReady',
+            path: './core/require/path',
             // namespace that aggregate core classes that are in frequent use
             Boiler: './core/_boiler_'
         }

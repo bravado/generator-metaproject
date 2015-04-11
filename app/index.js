@@ -101,6 +101,7 @@ MetaprojectGenerator.prototype.app = function app() {
     this.directory('core', core);
     this.copy('main.js', app + '/main.js');
     this.copy('style.css', app + '/style.css');
+    this.copy('script.js', app + '/script.js');
     this.template('_index.html', app + '/index.html');
     this.template('_bowerrc', '.bowerrc');
     this.template('_settings.js', app + '/settings.js');

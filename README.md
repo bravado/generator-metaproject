@@ -34,6 +34,14 @@ Finally, initiate the generator on `app_root`:
 
   * `app_dir` should be your public html directory, defaults to "app"
 
+### Module Generator
+
+To create a new module use
+    
+    yo metaproject:module [--simple] [module_name]
+    
+A new module will be created in `app/modules/[module_name]`
+
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
