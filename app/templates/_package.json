@@ -1,8 +1,0 @@
-{
-    "name": "<%= packageName %>",
-    "version": "<%= appVersion %>",
-    "keywords": [
-    <%= keywords %>
-    ],
-    "homepage": "<%= homepage %>"
-}

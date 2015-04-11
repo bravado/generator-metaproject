@@ -1,6 +1,7 @@
 'use strict';
 var util = require('util');
 var yeoman = require('yeoman-generator');
+var fs = require('fs');
 
 var ModuleGenerator = module.exports = function ModuleGenerator(args, options, config) {
     // By calling `NamedBase` here, we get the argument to the subgenerator call
@@ -8,6 +9,9 @@ var ModuleGenerator = module.exports = function ModuleGenerator(args, options, c
     yeoman.generators.NamedBase.apply(this, arguments);
 
     this.option('simple');
+
+    this.models = fs.existsSync('app/modules/models.js');
+    this.banner = fs.readFileSync(require.resolve('../banner.txt'),'ascii');
     // console.log('You called the module subgenerator with the argument ' + this.name + '.');
 };
 
@@ -15,10 +19,10 @@ util.inherits(ModuleGenerator, yeoman.generators.NamedBase);
 
 ModuleGenerator.prototype.askFor = function askFor() {
 
-    var cb = this.async();
+    //var cb = this.async();
 
     // have Yeoman greet the user.
-    console.log(this.yeoman);
+    console.log(this.banner);
 
     var prompts = [
         {
@@ -29,11 +33,11 @@ ModuleGenerator.prototype.askFor = function askFor() {
         }
     ];
 
-    this.prompt(prompts, function (props) {
-        this.models = props.models;
-
-        cb();
-    }.bind(this));
+    //this.prompt(prompts, function (props) {
+    //    this.models = props.models;
+    //
+    //    cb();
+    //}.bind(this));
 
 };
 
@@ -48,8 +52,5 @@ ModuleGenerator.prototype.files = function files() {
         this.template('_module.js', module + '/module.js');
     }
 
-    if (this.models) {
-        this.copy('models.js', module + '/models.js');
-    }
     this.template('_view.html', module + '/view.html', { models: this.models });
 };

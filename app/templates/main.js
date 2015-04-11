@@ -11,10 +11,13 @@
         paths: {
             // requirejs plugins in use
             text: './assets/requirejs-text/text',
+            //order: './core/require/order',
+            //i18n: './core/require/i18n',
             domReady: './assets/requirejs-domready/domReady',
             path: './core/require/path',
-            // namespace that aggregate core classes that are in frequent use
-            Boiler: './core/_boiler_'
+            // BoilerplateJS namespace used to access core classes
+            Boiler: './core/_boiler_',
+            metaproject: './assets/metaproject/'  + 'components'
         }
     });
 
@@ -28,10 +31,13 @@
          * whereas object instances ('settings' and 'modules') are represented with camelCase variable names.
          */
         var domReady = require("domReady"), // requirejs domReady plugin to know when DOM is ready
-            Boiler = require("Boiler"), // BoilerplateJS namespace used to access core classes, see above for the definition
-            settings = require("./settings"); //global settings file of the product suite
+            Boiler = require("Boiler"),
+            modules = {
+                "/": require('./modules/index')
+            };
 
-
+        // register all metaproject components
+        require('./../assets/metaproject/components/index');
 
         //Here we use the requirejs domReady plugin to run our code, once the DOM is ready to be used.
         domReady(function () {
@@ -42,51 +48,8 @@
                 }
             });
 
-            /* In JavaScript, functions can be used similarly to classes in OO programming. Below,
-             * we create an instance of 'Boiler.Context' by calling the 'new' operator. Then add
-             * global settings. These will be propagated to child contexts
-             */
-            var globalContext = new Boiler.Context();
-            globalContext.addSettings(settings);
+            Boiler.bootstrap(".appcontent", modules);
 
-
-            /* In BoilerplateJS, your product module hierachy is associated to a 'Context' hierarchy. Below
-             * we create the global 'Context' and load child contexts (representing your product sub modules)
-             * to create a 'Context' tree (product modules as a tree).
-             */
-
-            var controller = new Boiler.UrlController($(".appcontent"));
-            for (var i = 0; i < settings.modules.length; i++) {
-
-                var context = new Boiler.Context(globalContext),
-                    routes = settings.modules[i].initialize(context);
-
-                if(undefined !== routes) {
-
-                    controller.addRoutes(routes);
-
-                }
-            }
-            controller.start();
-
-            /* Mainmenu code */
-            $('.main-menu').on('click', 'a', function() {
-                $('.app-menu .current-module span').text($(this).text());
-                $('.main-menu li').removeClass('active');
-                $(this).parents('li').addClass('active');
-
-            });
-
-            function mainmenu_update() {
-                var $link = $('.main-menu a[href="' + window.location.hash + '"]');
-                if($link.length === 0) {
-                    $link = $('.main-menu a[href="#/"]');
-                }
-                $link.click();
-            }
-
-            hasher.changed.add(mainmenu_update);
-            setTimeout(mainmenu_update, 500);
         });
     });
 }());

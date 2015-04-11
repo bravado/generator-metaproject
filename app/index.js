@@ -2,7 +2,7 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
-
+var fs = require('fs');
 
 var MetaprojectGenerator = module.exports = function MetaprojectGenerator(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
@@ -10,7 +10,7 @@ var MetaprojectGenerator = module.exports = function MetaprojectGenerator(args, 
     this.name = undefined == arguments[0][0] ? 'app' : arguments[0][0];
 
     this.on('end', function () {
-        this.installDependencies({ skipInstall: options['skip-install'] });
+        this.installDependencies({ skipInstall: options['skip-install'], npm: false });
     });
 
     this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -18,11 +18,13 @@ var MetaprojectGenerator = module.exports = function MetaprojectGenerator(args, 
 
 util.inherits(MetaprojectGenerator, yeoman.generators.Base);
 
+MetaprojectGenerator.banner = fs.readFileSync(require.resolve('../banner.txt'),'ascii');
+
 MetaprojectGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
 
-    // have Yeoman greet the user.
-    console.log(this.yeoman);
+    // greet the user.
+    console.log(MetaprojectGenerator.banner);
 
     var prompts = [
         {
@@ -97,15 +99,14 @@ MetaprojectGenerator.prototype.app = function app() {
         core = this.name + '/core';
 
     this.mkdir(app);
-    this.mkdir(modules);
     this.directory('core', core);
+    this.directory('modules', modules);
     this.copy('main.js', app + '/main.js');
     this.copy('style.css', app + '/style.css');
     this.copy('script.js', app + '/script.js');
     this.template('_index.html', app + '/index.html');
     this.template('_bowerrc', '.bowerrc');
     this.template('_settings.js', app + '/settings.js');
-    this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
 
 };
