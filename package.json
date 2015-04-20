@@ -1,16 +1,20 @@
 {
   "name": "generator-metaproject",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A generator for Metaproject Applications",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "metaproject",
+    "rest",
+    "crud",
+    "app"
   ],
   "homepage": "https://github.com/bravado/generator-metaproject",
   "bugs": "https://github.com/bravado/generator-metaproject/issues",
   "author": {
     "name": "Guilherme Barile",
-    "email": "guigouz@gmail.com",
-    "url": "https://github.com/guigouz"
+    "email": "gui@bravado.com.br",
+    "url": "https://guigouz.github.io"
   },
   "main": "app/index.js",
   "repository": {

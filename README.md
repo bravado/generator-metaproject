@@ -1,27 +1,19 @@
-# generator-metaproject
+# The Metaproject Generator
 
 A Yeoman generator for [Metaproject](https://github.com/bravado/metaproject) applications.
 
+## This is alpha-software
+
+We're getting ready for a stable release.
+
 ## Getting Started
-
-### What is Yeoman?
-
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
-
-### Dependencies
 
 To run this generator, you'll need NPM, Yeoman and Bower installed
 
     $ npm install -g yo
     $ npm install -g bower
 
-## The Metaproject Generator
+## Installation
 
 To install generator-metaproject from npm, run:
 
@@ -30,17 +22,59 @@ To install generator-metaproject from npm, run:
 Finally, initiate the generator on `app_root`:
 
     $ cd /path/to/app_root
-    $ yo metaproject [app_dir]
+    $ yo metaproject
 
-  * `app_dir` should be your public html directory, defaults to "app"
+### Application Structure
 
-### Module Generator
+    skeleton/
+        `- app/
+            `- core/
+            `- modules/
+              `- base/
+              `- AdminLTE/
+              `- products/
+              `- index.js
+              `- models.js
+            `- main.js
+            `- script.js
+            `- style.css
+            `- index.html
 
-To create a new module use
-    
-    yo metaproject:module [--simple] [module_name]
-    
-A new module will be created in `app/modules/[module_name]`
+ * The `app/` directory stores the public application files.
+    * `app/core` holds the core framework
+    * `main.js` bootstraps the application
+    * `script.js` Additional scripts
+    * `style.css` Additional styles
+    * `index.html` Main app structure
+ 
+* Every module is self contained and stored under `app/modules`
+    * `app/modules/index.js` holds the modules url mapping
+    * `app/modules/models.js` defines the shared Data Models used by 
+    the application.
+
+Modules are framework-agnostic. The architecture, provided by 
+BoilerplateJS, demonstrates the best practices for integrating your 
+libraries for large scale product development. 
+
+## Module Generator
+
+You can add additional modules to your application using the `module`
+subgenerator
+
+    yo metaproject:module name
+
+Creates a default module with separate `viewmodel.js` and submodule 
+support.
+
+    yo metaproject:module name --simple
+
+Creates a simple module with inline `viewModel` and a single endpoint.
+
+For detailed examples, please check the 
+[Skeleton](https://github.com/objectiveweb/skeleton) reference 
+Application and the
+[Building Skeleton](http://guigouz.github.io/building-skeleton.md) post
+
 
 ## License
 
