@@ -3,13 +3,16 @@ define(function (require) {
     "use strict";
 
     // Module dependencies
-    var Boiler = require('Boiler'),//<% if(models) { %>
-        models = require('../models'),// <% } %>
+    var Boiler = require('Boiler'),
+        models = require('../models'),
         viewTemplate = require('text!./view.html');
 
     var viewModel = {
-        name: '<%= name %>'
+        name: '<%= appTitle %>',
+        url: '<%= pkg.homepage %>'
     };
+
+    $('.sidebar-menu').prepend(menu);
 
     return {
 

@@ -100,7 +100,13 @@ MetaprojectGenerator.prototype.app = function app() {
 
     this.mkdir(app);
     this.directory('core', core);
-    this.directory('modules', modules);
+    this.mkdir(modules);
+    this.copy('modules/index.js', modules + '/index.js');
+    this.copy('modules/models.js', modules + '/models.js');
+    this.mkdir(modules + '/base');
+    this.copy('modules/base/view.html', modules + '/base/view.html');
+    this.template('modules/base/_module.js', modules + '/base/module.js');
+    this.copy('modules/base/menu.html', modules + '/base/menu.html');
     this.copy('main.js', app + '/main.js');
     this.copy('style.css', app + '/style.css');
     this.copy('script.js', app + '/script.js');
@@ -108,7 +114,8 @@ MetaprojectGenerator.prototype.app = function app() {
     this.template('_bowerrc', '.bowerrc');
     this.template('_settings.js', app + '/settings.js');
     this.template('_bower.json', 'bower.json');
-
+    this.copy('htaccess', '.htaccess');
+    this.copy('gitignore', '.gitignore');
 };
 
 MetaprojectGenerator.prototype.projectfiles = function projectfiles() {

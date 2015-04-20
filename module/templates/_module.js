@@ -3,13 +3,14 @@ define(function (require) {
     "use strict";
 
     // Module dependencies
-    var Boiler = require('Boiler'),<% if(models) { %>
-        models = require('../models'), <% } %>
-        viewTemplate = require('text!./view.html');
+    var Boiler = require('Boiler'), // Boilerplatejs functions <% if(models) { %>
+        models = require('../models'), // Model definitions for this app<% } %>
+        viewModel = require('./viewmodel'), // ViewModule for this view
+        viewTemplate = require('text!./view.html'); // Module template
 
-    var viewModel = {
-        name: '<%= name %>'
-    };
+    // <% if(options.menu) { %>
+    $('.sidebar-menu').append(require('text!./menu.html'));
+    // <% } %>
 
     return function(context) {
 

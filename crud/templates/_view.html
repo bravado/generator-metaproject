@@ -1,0 +1,23 @@
+<section class="content">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><%= _.capitalize(name) %></h3>
+            <div class="box-tools pull-right">
+
+                <data-paginator params="query: data, class: 'pagination no-margin pagination-sm'"></data-paginator>
+            </div>
+        </div>
+        <div class="box-body">
+            <data-table params="data: data, columns: columns, actions: actions"></data-table>
+        </div>
+        <!-- ko if: data.loading -->
+        <div class="overlay">
+            <i class="fa fa-refresh fa-spin"></i>
+        </div>
+        <!-- /ko -->
+        <div class="box-footer">
+            <a class="btn btn-default" href="#/<%= name %>/new">
+                <i class="fa fa-plus-square-o"></i> Add <%= model %></a>
+        </div>
+    </div>
+</section>

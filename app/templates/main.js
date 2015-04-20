@@ -37,7 +37,7 @@
             };
 
         // register all metaproject components
-        require('./../assets/metaproject/components/index');
+        require('./assets/metaproject/components/index');
 
         //Here we use the requirejs domReady plugin to run our code, once the DOM is ready to be used.
         domReady(function () {

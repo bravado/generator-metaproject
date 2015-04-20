@@ -12,7 +12,7 @@ var ModuleGenerator = module.exports = function ModuleGenerator(args, options, c
 
     this.models = fs.existsSync('app/modules/models.js');
     this.banner = fs.readFileSync(require.resolve('../banner.txt'),'ascii');
-    // console.log('You called the module subgenerator with the argument ' + this.name + '.');
+    this.pkg = JSON.parse(this.readFileAsString('bower.json'));
 };
 
 util.inherits(ModuleGenerator, yeoman.generators.NamedBase);
@@ -23,15 +23,6 @@ ModuleGenerator.prototype.askFor = function askFor() {
 
     // have Yeoman greet the user.
     console.log(this.banner);
-
-    var prompts = [
-        {
-            name: 'models',
-            type: 'confirm',
-            message: 'Create a models file ?',
-            default: false
-        }
-    ];
 
     //this.prompt(prompts, function (props) {
     //    this.models = props.models;
@@ -50,7 +41,12 @@ ModuleGenerator.prototype.files = function files() {
     }
     else {
         this.template('_module.js', module + '/module.js');
+        this.template('_viewmodel.js', module + '/viewmodel.js');
     }
 
     this.template('_view.html', module + '/view.html', { models: this.models });
+
+    if(this.options.menu) {
+        this.template('_menu.html', module + '/menu.html');
+    }
 };
