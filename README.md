@@ -1,6 +1,7 @@
 # The Metaproject Generator
 
-A Yeoman generator for [Metaproject](https://github.com/bravado/metaproject) applications.
+A Yeoman generator for 
+[Metaproject](https://github.com/bravado/metaproject) applications.
 
 ## This is alpha-software
 
@@ -26,19 +27,21 @@ Finally, initiate the generator on `app_root`:
 
 ### Application Structure
 
-    skeleton/
+    [app root]
         `- app/
             `- core/
             `- modules/
               `- base/
-              `- AdminLTE/
-              `- products/
               `- index.js
               `- models.js
             `- main.js
             `- script.js
             `- style.css
             `- index.html
+        .bowerrc
+        .gitignore
+        .htaccess
+        bower.json
 
  * The `app/` directory stores the public application files.
     * `app/core` holds the core framework
@@ -48,6 +51,7 @@ Finally, initiate the generator on `app_root`:
     * `index.html` Main app structure
  
 * Every module is self contained and stored under `app/modules`
+    * The `base` module is defined in `app/modules/base/module`
     * `app/modules/index.js` holds the modules url mapping
     * `app/modules/models.js` defines the shared Data Models used by 
     the application.
