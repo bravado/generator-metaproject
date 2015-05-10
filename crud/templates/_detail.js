@@ -41,7 +41,12 @@ define(function (require) {
         viewModel: viewModel,
         activate: function(parent, params) {
             // called after the template is loaded and viewModel is bound
-            viewModel.load(params.id);
+            if(params.id == 'new') {
+                viewModel.create();
+            }
+            else {
+                viewModel.load(params.id);
+            }
         },
         deactivate: function() {
             // called before hiding this module
