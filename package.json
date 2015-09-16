@@ -1,6 +1,6 @@
 {
   "name": "generator-metaproject",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A generator for Metaproject Applications",
   "keywords": [
     "yeoman-generator",
