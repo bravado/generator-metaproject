@@ -8,7 +8,15 @@ define(function(require) {
 
     return {
         data: Model.query({}),
+        /**
+         * Define the table columns
+         *  [ { label: 'Label', text: 'field' },
+         *    { label: 'Label2', text: function(item) { return item.otherfield() + '!'; }
+         */
         columns: [],
+        /**
+         * Define the actions for each row
+         */
         actions: {
             'Edit': function(item) {
                 Boiler.UrlController.goTo('<%= name %>/' + item.id());

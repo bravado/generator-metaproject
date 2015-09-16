@@ -14,6 +14,15 @@ var MetaprojectGenerator = module.exports = function MetaprojectGenerator(args, 
     });
 
     this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+
+    // add prefix for java projects
+    if(fs.existsSync('src/main/resources/static')) {
+        this.prefix = 'src/main/resources/static/';
+    }
+    else {
+        this.prefix = '';
+    }
+
 };
 
 util.inherits(MetaprojectGenerator, yeoman.generators.Base);
@@ -94,9 +103,9 @@ MetaprojectGenerator.prototype.askFor = function askFor() {
 
 MetaprojectGenerator.prototype.app = function app() {
 
-    var app = this.name,
-        modules = this.name + '/modules',
-        core = this.name + '/core';
+    var app = this.prefix + this.name,
+        modules = app + '/modules',
+        core = app + '/core';
 
     this.mkdir(app);
     this.directory('core', core);

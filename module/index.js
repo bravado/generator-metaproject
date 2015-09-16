@@ -13,6 +13,14 @@ var ModuleGenerator = module.exports = function ModuleGenerator(args, options, c
     this.models = fs.existsSync('app/modules/models.js');
     this.banner = fs.readFileSync(require.resolve('../banner.txt'),'ascii');
     this.pkg = JSON.parse(this.readFileAsString('bower.json'));
+
+    // add prefix for java projects
+    if(fs.existsSync('src/main/resources/static')) {
+        this.prefix = 'src/main/resources/static/';
+    }
+    else {
+        this.prefix = '';
+    }
 };
 
 util.inherits(ModuleGenerator, yeoman.generators.NamedBase);
@@ -33,7 +41,7 @@ ModuleGenerator.prototype.askFor = function askFor() {
 };
 
 ModuleGenerator.prototype.files = function files() {
-    var module = 'app/modules/' + this.name;
+    var module = this.prefix + 'app/modules/' + this.name;
     this.mkdir(module);
 
     if (this.options.simple) {

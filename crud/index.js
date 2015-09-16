@@ -38,6 +38,15 @@ var CrudGenerator = module.exports = function CrudGenerator(args, options, confi
 
     this.banner = fs.readFileSync(require.resolve('../banner.txt'),'ascii');
     this.pkg = JSON.parse(this.readFileAsString('bower.json'));
+
+    // add prefix for java projects
+    if(fs.existsSync('src/main/resources/static')) {
+        this.prefix = 'src/main/resources/static/';
+    }
+    else {
+        this.prefix = '';
+    }
+
 };
 
 util.inherits(CrudGenerator, yeoman.generators.Base);
@@ -58,7 +67,7 @@ CrudGenerator.prototype.askFor = function askFor() {
 };
 
 CrudGenerator.prototype.files = function files() {
-    var module = 'app/modules/' + this.name;
+    var module = this.prefix + 'app/modules/' + this.name;
     this.mkdir(module);
 
     this.template('_module.js', module + '/module.js');
